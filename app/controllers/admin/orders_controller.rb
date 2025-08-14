@@ -3,7 +3,8 @@ class Admin::OrdersController < AdminController
 
   # GET /admin/orders or /admin/orders.json
   def index
-    @admin_orders = Order.all
+    @not_fulfilled_orders = Order.where(fulfilled: false).order(created_at: :asc)
+    @fulfilled_orders = Order.where(fulfilled: true).order(created_at: :asc)
   end
 
   # GET /admin/orders/1 or /admin/orders/1.json
@@ -25,7 +26,7 @@ class Admin::OrdersController < AdminController
 
     respond_to do |format|
       if @admin_order.save
-        format.html { redirect_to @admin_order, notice: "Order was successfully created." }
+       format.html { redirect_to admin_order_url(@admin_order), notice: "Order was successfully created." }
         format.json { render :show, status: :created, location: @admin_order }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +39,7 @@ class Admin::OrdersController < AdminController
   def update
     respond_to do |format|
       if @admin_order.update(admin_order_params)
-        format.html { redirect_to @admin_order, notice: "Order was successfully updated.", status: :see_other }
+        format.html { redirect_to admin_order_url(@admin_order), notice: "Order was successfully updated." }
         format.json { render :show, status: :ok, location: @admin_order }
       else
         format.html { render :edit, status: :unprocessable_entity }
