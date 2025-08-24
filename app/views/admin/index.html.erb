@@ -1,8 +1,8 @@
 <h1>Admin Home</h1>
-<div data-controller="home"></div>
-<div data-controller="home">
+
+<%# <div data-controller="home">
   <canvas id="myChart" width="400" height="200"></canvas>
-</div>
+</div> %>
 
 
 <div class="flex justify-between flex-wrap mt-8 w-full items-center max-w-4xl">
@@ -44,9 +44,8 @@
 
   <div class="my-8 w-full">
     <h2 class="text-2xl text-gray-800 font-medium mb-4">Revenue</h2>
-    <h2 class="text-2xl text-gray-800 font-medium mb-4">Revenue</h2>
-    <div class="w-full" data-controller="dashboard" data-dashboard-revenue-value="<%= @revenue_by_day.to_json %>">
-      <canvas id="revenueChart"></canvas>
+    <div data-controller="dashboard">
+     <canvas id="revenueChart" width="400" height="200" data-dashboard-revenue-value="<%= @revenue_by_day.to_json %>"></canvas>
     </div>
   </div>
 
