@@ -8,3 +8,5 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "chart.js" # @4.5.0
 pin "@kurkle/color", to: "@kurkle--color.js" # @0.3.4
 pin "all" # @0.0.0
+pin "chart.js", to: "https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"
+
