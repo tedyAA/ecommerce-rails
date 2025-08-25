@@ -4,6 +4,13 @@ module Api
 
     def index
       products = Product.includes(:category, images_attachments: :blob).all
+      products = products.where(bestseller: true) if params[:bestseller] == "true"
+
+       if params[:per].present?
+        per = params[:per].to_i
+        products = products.limit(per) if per > 0
+       end
+
       render json: products.map { |product|
         product_attributes = product.attributes
         product_attributes[:category] = product.category
