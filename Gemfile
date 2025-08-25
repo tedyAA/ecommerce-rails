@@ -74,3 +74,4 @@ end
 
 gem 'font-awesome-sass', '~> 6.2.0'
 
+gem 'rack-cors'
