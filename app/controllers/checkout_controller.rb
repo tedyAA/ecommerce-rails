@@ -1,6 +1,7 @@
 class CheckoutController < ApplicationController
   def create
     # REFACTOR THIS SHOULD NOT BE HERE
+    Stripe.api_key = stripe_secret_key
     cart = params[:cart]
     line_items = cart.map do |item|
       product = Product.find(item["id"])
