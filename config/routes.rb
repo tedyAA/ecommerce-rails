@@ -29,5 +29,9 @@ end
   resources :categories, only:[:show]
   resources :products, only:[:show]
   get "admin" => "admin#index"
+  get "cart" => "carts#show"
+  post "checkout" => "checkout#create"
+  get "success" => "checkout#success"
+  get "cancel" => "checkout#cancel"
 
 end
