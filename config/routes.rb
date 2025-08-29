@@ -30,8 +30,8 @@ end
   resources :products, only:[:show]
   get "admin" => "admin#index"
   get "cart" => "carts#show"
-  post "checkout" => "checkout#create"
-  get "success" => "checkout#success"
-  get "cancel" => "checkout#cancel"
+  post "checkout" => "checkouts#create"
+  get "success" => "checkouts#success"
+  get "cancel" => "checkouts#cancel"
 
 end
