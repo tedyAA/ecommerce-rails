@@ -1,4 +1,4 @@
-class CheckoutController < ApplicationController
+class CheckoutsController < ApplicationController
   def create
     # REFACTOR THIS SHOULD NOT BE HERE
     Stripe.api_key = stripe_secret_key
